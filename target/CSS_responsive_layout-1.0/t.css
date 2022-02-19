@@ -1,0 +1,134 @@
+/*
+  Project name(项目名称)：CSS_responsive_layout 
+  File name(文件名): t
+  Author(作者）: mao
+  Author QQ：1296193245
+  GitHub：https://github.com/maomao124/
+  Date(创建日期)： 2022/2/19 
+  Time(创建时间)： 20:45
+  Version(版本): 1.0
+  Description(描述)：
+  要实现响应式布局，常用的方式有以下几种：
+使用 CSS 中的媒体查询（最简单）；
+使用 JavaScript（使用成本比较高）；
+使用第三方开源框架（例如 bootstrap，可以很好的支持各种浏览器）。
+
+设置 meta 标签
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+在设置视口时需要注意，视口就是网页可见区域的尺寸，设置视口时只设置宽度就行，不用在乎高度，具体高度由网页内容自动撑开。上面 meta 标签中内容的含义如下：
+viewport：即视口，表示网页的可视区域；
+width：控制 viewport 的大小，可以指定一个具体的值，例如 600，也可以是由关键字组成的特殊值，例如 device-width 就表示设备的宽度；
+initial-scale：表示初始缩放比例，也就是页面第一次加载时的缩放比例；
+maximum-scale：表示允许用户缩放的最大比例，范围从 0 到 10.0；
+minimum-scale：表示允许用户缩放到最小比例，范围从 0 到 10.0；
+user-scalable：表示用户是否可以手动缩放，“yes”表示允许缩放，“no”表示禁止缩放。
+ */
+
+
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: "微软雅黑";
+}
+
+#head, #foot, #main {
+    height: 100px;
+    width: 1200px;
+    /*width: 85%;*/
+    background-color: goldenrod;
+    text-align: center;
+    font-size: 48px;
+    line-height: 100px;
+    margin: 0 auto;
+}
+
+#head div {
+    display: none;
+    font-size: 20px;
+    height: 30px;
+    width: 100px;
+    background-color: green;
+    float: right;
+    line-height: 30px;
+    margin-top: 35px;
+}
+
+#head ul {
+    width: 80%;
+}
+
+#head ul li {
+    width: 20%;
+    float: left;
+    text-align: center;
+    list-style: none;
+    font-size: 20px;
+}
+
+#main {
+    height: auto;
+    margin: 10px auto;
+    overflow: hidden;
+}
+
+.left, .center, .right {
+    height: 600px;
+    line-height: 600px;
+    float: left;
+    width: 20%;
+    background-color: red
+}
+
+.center {
+    width: 60%;
+    border-left: 10px solid #FFF;
+    border-right: 10px solid #FFF;
+    box-sizing: border-box;
+}
+
+@media only screen and (max-width: 1200px) {
+    #head, #foot, #main {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 980px) {
+    .right {
+        display: none;
+    }
+
+    .left {
+        width: 30%;
+    }
+
+    .center {
+        width: 70%;
+        border-right: hidden;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    .left, .center, .right {
+        width: 100%;
+        display: block;
+        height: 200px;
+        line-height: 200px;
+    }
+
+    .center {
+        border: hidden;
+        border-top: 10px solid #FFFFFF;
+        border-bottom: 10px solid #FFFFFF;
+        height: 600px;
+        line-height: 600px;
+    }
+
+    #head ul {
+        display: none;
+    }
+
+    #head div {
+        display: block;
+    }
+}
+    
